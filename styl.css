@@ -1,0 +1,42 @@
+*{
+  box-sizing: border-box;
+}
+
+#game{
+  width: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+  border: 1px solid #000;
+  position: relative;
+  background-image: url("grass.jpg");
+}
+
+#warrior{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  z-index: 1;
+}
+
+.skeleton{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 300px;
+  top: 300px;
+  z-index: 2;
+}
+
+.rock{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+.tree{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
