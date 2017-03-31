@@ -5,19 +5,40 @@ var warrior = $('#warrior');
 var rock = $('.rock');
 var tree = $('.tree');
 var skeleton = $('.skeleton');
+var dragon = $('#dragon');
+var sword = $('#sword');
+var priest = $('#priest');
 
 var xWarrior = warrior.css('left');
 var yWarrior = warrior.css('top');
 
+// variables used for regular positioning (50x50):
 var xSkeleton;
 var ySkeleton;
+var xDragon;
+var yDragon;
 
-var skelPosx = [];
-var skelPosy = [];
+// variables used for offset positioning used for dragon fight (bigger model 100x100);
+var xDragonOffset;
+var yDragonOffset;
+var xWarriorOffset;
+var yWarriorOffset;
 
+// dice roll used for fights;
 var randomNumber;
 
+// technical, checks if function was performed;
+var swordPicked = false;
+
+// technical, checks if function was performed;
+var priestMet = false;
+
 placeObjects();
+$('#game').fadeIn('fast');
+$('#popup').fadeIn('slow');
+$('#popup').on('click', function(){
+	$(this).fadeOut();
+});
 
 	$(document).keydown(function(f) {
 		warrior.finish();
@@ -38,7 +59,8 @@ placeObjects();
 					};
 					// end rock collision - right;
 
-					event1();
+					enemyActions();
+					meet();
 				});
 			}
 		}
@@ -56,7 +78,8 @@ placeObjects();
 					};
 					// end rock collision - top;
 
-					event1();
+					enemyActions();
+					meet();
 				});
 			}
 		}
@@ -74,7 +97,8 @@ placeObjects();
 					};
 					// end rock collision - right;
 
-					event1();
+					enemyActions();
+					meet();
 				});
 			}
 		}
@@ -92,11 +116,39 @@ placeObjects();
 					};
 					// end rock collision - bot;
 
-					event1();
+					enemyActions();
+					meet();
 				});
 			}
 		};
 	});
+
+	function meetPriest(){
+
+		xWarrior = warrior.css('left');
+		yWarrior = warrior.css('top');
+
+		if (xWarrior == priest.css('left') && yWarrior == priest.css('top')){
+			skeleton.attr('src','burningskeleton.png');
+			$('#priestMeet').fadeIn('slow');
+			$('#priestMeet').on('click', function(){
+				$(this).fadeOut();
+			});
+			priestMet = true;
+		};
+	};
+
+	function pickSword(){
+
+		xWarrior = warrior.css('left');
+		yWarrior = warrior.css('top');
+
+		if (xWarrior == sword.css('left') && yWarrior == sword.css('top') && swordPicked == false){
+			sword.fadeOut();
+			swordPicked = true;
+			warrior.attr('src','warriorkiller.png');
+		};
+	};
 
 	function skeletonFight(){
 
@@ -111,11 +163,13 @@ placeObjects();
 
 			if(xWarrior == xSkeleton && yWarrior == ySkeleton){
 
-					if ( randomNumber < 0.2 && $(skeleton[i]).is(":visible")) {
-
+					if ( randomNumber < 0.2 && $(skeleton[i]).is(":visible") && priestMet == false) {
 					warrior.stop().effect( "explode", {pieces: 16}, "slow" );
 					}
-					else if ( randomNumber >= 0.2  && $(skeleton[i]).is(":visible")) {
+					else if ( randomNumber >= 0.2  && $(skeleton[i]).is(":visible") && priestMet == false) {
+					$(skeleton[i]).stop().effect( "explode", {pieces: 16}, "slow" );
+					}
+					else if (priestMet == true && $(skeleton[i]).is(":visible")) {
 					$(skeleton[i]).stop().effect( "explode", {pieces: 16}, "slow" );
 					}
 				}
@@ -132,64 +186,114 @@ placeObjects();
 
 			if ( skeletonDirection <= 0.25 && xSkeleton != '0px') {
 				$(skeleton[i]).animate({left: '-=50px'}, 50, function(){ // left
-					event2();
+					skeletonEngage();
 				});
 			}
-			else if (skeletonDirection > 0.25 && skeletonDirection <= 0.50 && xSkeleton != '950px') {
+			else if (skeletonDirection > 0.25 && skeletonDirection <= 0.50 && xSkeleton != '350px') {
 				$(skeleton[i]).animate({left: '+=50px'}, 50, function(){ // right
-					event2();
+					skeletonEngage();
 				});
 			}
-			else if (skeletonDirection > 0.50 && skeletonDirection <= 0.75 && ySkeleton != '0px') {
+			else if (skeletonDirection > 0.50 && skeletonDirection <= 0.75 && ySkeleton != '300px') {
 				$(skeleton[i]).animate({top: '-=50px'}, 50, function(){ // top
-					event2();
+					skeletonEngage();
 				});
 			}
-			else if (skeletonDirection > 0.75 && skeletonDirection <= 1.00 && ySkeleton != '950px') {
+			else if (skeletonDirection > 0.75 && skeletonDirection <= 1.00 && ySkeleton != '550px') {
 				$(skeleton[i]).animate({top: '+=50px'}, 50, function(){ // bot
-					event2();
+					skeletonEngage();
 				});
 			};
 		}; // koniec XXX
 	};
 
-function skeletonCollision(){
-	for (i = 0 ; i < rock.length ; i++){
-		var x = 0
-		while (x < skeleton.length){
-			if ($(rock[i]).css('left') == $(skeleton[x]).css('left') && $(rock[i]).css('top') == $(skeleton[x]).css('top')){
-				$(skeleton[x]).animate({left: skelPosx[x]}, 50);
-				$(skeleton[x]).animate({top: skelPosy[x]}, 50);
+	function dragonFight(){
+
+		xWarriorOffset = $(warrior).offset().left;
+		yWarriorOffset = $(warrior).offset().top;
+
+		xDragonOffset = $(dragon).offset().left;
+		yDragonOffset = $(dragon).offset().top;
+
+		if(	xWarriorOffset == xDragonOffset && yWarriorOffset == yDragonOffset ||
+				xWarriorOffset == xDragonOffset+50 && yWarriorOffset == yDragonOffset ||
+				xWarriorOffset == xDragonOffset && yWarriorOffset == yDragonOffset+50 ||
+				xWarriorOffset == xDragonOffset+50 && yWarriorOffset == yDragonOffset+50){
+			// dragon has 50% chance of killing warrior;
+			if ( randomNumber < 0.5 && $(dragon).is(":visible") && swordPicked == false) {
+				warrior.stop().effect( "explode", {pieces: 16}, "slow" );
+			}
+			else if ( randomNumber >= 0.5  && $(dragon).is(":visible") && swordPicked == false) {
+				$(dragon).stop().effect( "explode", {pieces: 16}, "slow" );
+			}
+			else if (swordPicked == true  && $(dragon).is(":visible")) {
+				$(dragon).stop().effect( "explode", {pieces: 16}, "slow" );
+			}
+		}
+	}
+
+	function dragonMove(){
+
+			xDragon = $(dragon).css('left');
+			yDragon = $(dragon).css('top');
+
+			var dragonDirection = Math.random()
+
+			if ( dragonDirection <= 0.25 && xDragon != '400px') {
+				$(dragon).animate({left: '-=50px'}, 50, function(){ // left
+					dragonEngage();
+				});
+			}
+			else if (dragonDirection > 0.25 && dragonDirection <= 0.50 && xDragon != '900px') {
+				$(dragon).animate({left: '+=50px'}, 50, function(){ // right
+					dragonEngage();
+				});
+			}
+			else if (dragonDirection > 0.50 && dragonDirection <= 0.75 && yDragon != '400px') {
+				$(dragon).animate({top: '-=50px'}, 50, function(){ // top
+					dragonEngage();
+				});
+			}
+			else if (dragonDirection > 0.75 && dragonDirection <= 1.00 && yDragon != '900px') {
+				$(dragon).animate({top: '+=50px'}, 50, function(){ // bot
+					dragonEngage();
+				});
 			};
-			x++;
-		};
 	};
-};
 
-function skeletonPosition(){
-
-	for ( i = 0 ; i < skeleton.length ; i++){
-		skelPosx[i] = $(skeleton[i]).css('left');
-		skelPosy[i] = $(skeleton[i]).css('top');
-	};
-};
-
-function event1(){
+function enemyActions(){
 	randomNumber = Math.random()
+	dragonFight();
 	skeletonFight();
-	skeletonPosition();
 	skeletonMove();
+	dragonMove();
 };
 
-function event2(){
+function skeletonEngage(){
 	skeletonFight();
-	skeletonCollision();
 };
 
+function dragonEngage(){
+	dragonFight();
+};
 
+function meet(){
+	pickSword();
+	meetPriest();
+};
 
 function placeObjects(){
-	// top-left corner;
+
+	$(dragon).css({'left':'750px','top':'700px'});
+	$(sword).css({'left':'200px','top':'400px'});
+	$(priest).css({'left':'900px','top':'50px'});
+
+	$(skeleton[0]).css({'left':'0px','top':'500px'});
+	$(skeleton[1]).css({'left':'100px','top':'350px'});
+	$(skeleton[2]).css({'left':'150px','top':'400px'});
+	$(skeleton[3]).css({'left':'250px','top':'450px'});
+	$(skeleton[4]).css({'left':'300px','top':'300px'});
+
 	$(rock[0]).css({'left':'100px','top':'200px'});
 	$(rock[1]).css({'left':'150px','top':'200px'});
 	$(rock[2]).css({'left':'200px','top':'200px'});

@@ -9,6 +9,7 @@
   border: 1px solid #000;
   position: relative;
   background-image: url("grass.jpg");
+  display: none;
 }
 
 #warrior{
@@ -39,4 +40,78 @@
   position: absolute;
   width: 50px;
   height: 50px;
+}
+
+#dragon{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+}
+
+#sword, #priest{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+#popup{
+  position: absolute;
+  width: 800px;
+  height: 640px;
+  z-index: 100;
+  left: 100;
+  top: 100;
+  background-image: url(scroll.png);
+  background-size: 800px 640px;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+#priestMeet{
+  display: none;
+}
+
+#priestTalk{
+  position: absolute;
+  width: 500px;
+  height: 800px;
+  z-index: 100;
+  left: 50;
+  top: 150;
+  background-image: url(talk.png);
+  background-size: 500px 640px;
+  background-repeat: no-repeat;
+}
+
+#priestMeet img{
+  position: absolute;
+  width: 800px;
+  height: 900px;
+  z-index: 90;
+  left: 500;
+  top: 30;
+}
+
+#popup h1 {
+  font-family: 'IM Fell Double Pica SC', serif;
+  font-size: 2.5em;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin-top: 160px;
+}
+
+#popup p {
+  font-family: 'IM Fell Double Pica SC', serif;
+  font-size: 1.8em;
+  margin: 0px 80px;
+  text-align: justify;
+}
+
+#priestTalk p {
+  font-family: 'IM Fell Double Pica SC', serif;
+  font-size: 1.8em;
+  margin: 120px 70px;
+  text-align: justify;
 }
