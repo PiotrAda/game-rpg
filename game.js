@@ -8,6 +8,12 @@ var skeleton = $('.skeleton');
 var dragon = $('#dragon');
 var sword = $('#sword');
 var priest = $('#priest');
+var fog = $('#fog');
+var stars = $('#stars');
+var cursed = $('.cursed');
+var tomb = $('.tomb');
+var fire = $('.fire');
+var burnedtree = $('.burnedtree');
 
 var xWarrior = warrior.css('left');
 var yWarrior = warrior.css('top');
@@ -128,7 +134,7 @@ $('#popup').on('click', function(){
 		xWarrior = warrior.css('left');
 		yWarrior = warrior.css('top');
 
-		if (xWarrior == priest.css('left') && yWarrior == priest.css('top')){
+		if (xWarrior == priest.css('left') && yWarrior == priest.css('top') && priestMet == false){
 			skeleton.attr('src','burningskeleton.png');
 			$('#priestMeet').fadeIn('slow');
 			$('#priestMeet').on('click', function(){
@@ -147,6 +153,10 @@ $('#popup').on('click', function(){
 			sword.fadeOut();
 			swordPicked = true;
 			warrior.attr('src','warriorkiller.png');
+			$('#swordMessage').fadeIn('slow');
+			$('#swordMessage').on('click', function(){
+				$(this).fadeOut();
+			});
 		};
 	};
 
@@ -288,11 +298,38 @@ function placeObjects(){
 	$(sword).css({'left':'200px','top':'400px'});
 	$(priest).css({'left':'900px','top':'50px'});
 
+	$(fog).css({'left':'-150px','top':'200px'});
+	$(stars).css({'left':'700px','top':'0px'});
+
+	$(cursed[0]).css({'left':'550px','top':'550px'});
+	$(cursed[1]).css({'left':'750px','top':'550px'});
+	$(cursed[2]).css({'left':'550px','top':'800px'});
+	$(cursed[3]).css({'left':'700px','top':'700px'});
+	$(cursed[4]).css({'left':'400px','top':'600px'});
+	$(cursed[5]).css({'left':'800px','top':'800px'});
+
 	$(skeleton[0]).css({'left':'0px','top':'500px'});
 	$(skeleton[1]).css({'left':'100px','top':'350px'});
 	$(skeleton[2]).css({'left':'150px','top':'400px'});
 	$(skeleton[3]).css({'left':'250px','top':'450px'});
 	$(skeleton[4]).css({'left':'300px','top':'300px'});
+
+	$(tomb[0]).css({'left':'100px','top':'300px'});
+	$(tomb[1]).css({'left':'150px','top':'450px'});
+	$(tomb[2]).css({'left':'250px','top':'350px'});
+
+	$(fire[0]).css({'left':'800px','top':'800px'});
+	$(fire[1]).css({'left':'500px','top':'700px'});
+	$(fire[2]).css({'left':'850px','top':'650px'});
+	$(fire[3]).css({'left':'700px','top':'600px'});
+	$(fire[4]).css({'left':'850px','top':'900px'});
+	$(fire[5]).css({'left':'650px','top':'900px'});
+
+	$(burnedtree[0]).css({'left':'900px','top':'850px'});
+	$(burnedtree[1]).css({'left':'900px','top':'700px'});
+	$(burnedtree[2]).css({'left':'700px','top':'700px'});
+	$(burnedtree[3]).css({'left':'550px','top':'650px'});
+	$(burnedtree[4]).css({'left':'600px','top':'850px'});
 
 	$(rock[0]).css({'left':'100px','top':'200px'});
 	$(rock[1]).css({'left':'150px','top':'200px'});
@@ -402,18 +439,9 @@ function placeObjects(){
 	$(tree[45]).css({'left':'550px','top':'350px'});
 	$(tree[46]).css({'left':'800px','top':'400px'});
 	$(tree[47]).css({'left':'850px','top':'450px'});
-	$(tree[48]).css({'left':'800px','top':'550px'});
-	$(tree[49]).css({'left':'900px','top':'550px'});
-	$(tree[50]).css({'left':'900px','top':'700px'});
-	$(tree[51]).css({'left':'900px','top':'850px'});
-	$(tree[52]).css({'left':'900px','top':'950px'});
-	$(tree[53]).css({'left':'600px','top':'950px'});
-	$(tree[54]).css({'left':'700px','top':'150px'});
-	$(tree[55]).css({'left':'750px','top':'800px'});
-	$(tree[56]).css({'left':'650px','top':'800px'});
-	$(tree[57]).css({'left':'650px','top':'600px'});
-	$(tree[58]).css({'left':'650px','top':'450px'});
-	$(tree[59]).css({'left':'800px','top':'450px'});
+	$(tree[48]).css({'left':'700px','top':'150px'});
+	$(tree[49]).css({'left':'650px','top':'450px'});
+	$(tree[50]).css({'left':'800px','top':'450px'});
 };
 
 });

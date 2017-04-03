@@ -1,3 +1,5 @@
+/* General */
+
 *{
   box-sizing: border-box;
 }
@@ -10,50 +12,55 @@
   position: relative;
   background-image: url("grass.jpg");
   display: none;
+  overflow: hidden;
 }
 
-#warrior{
+/* Objects */
+
+.rock, .tree, .skeleton, #warrior, #sword, #priest, .fire, .burnedtree, .tomb {
+  position: absolute;
   width: 50px;
   height: 50px;
-  position: absolute;
-  left: 50px;
-  top: 50px;
+}
+
+.skeleton, #sword, #priest, .fire {
   z-index: 1;
 }
 
-.skeleton{
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  left: 300px;
-  top: 300px;
+#warrior{
+  left: 50px;
+  top: 50px;
   z-index: 2;
-}
-
-.rock{
-  position: absolute;
-  width: 50px;
-  height: 50px;
-}
-
-.tree{
-  position: absolute;
-  width: 50px;
-  height: 50px;
 }
 
 #dragon{
   position: absolute;
   width: 100px;
   height: 100px;
-  z-index: 2;
+  z-index: 3;
 }
 
-#sword, #priest{
+/* Terrain */
+
+#fog{
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 800px;
+  height: 450px;
 }
+
+#stars{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+}
+
+.cursed{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+}
+
+/* Pop-ups */
 
 #popup{
   position: absolute;
@@ -70,6 +77,7 @@
 
 #priestMeet{
   display: none;
+  overflow: visible;
 }
 
 #priestTalk{
@@ -77,7 +85,7 @@
   width: 500px;
   height: 800px;
   z-index: 100;
-  left: 50;
+  left: 0;
   top: 150;
   background-image: url(talk.png);
   background-size: 500px 640px;
@@ -89,8 +97,30 @@
   width: 800px;
   height: 900px;
   z-index: 90;
-  left: 500;
+  left: 400;
   top: 30;
+}
+
+#swordMessage{
+  position: absolute;
+  width: 500px;
+  height: 800px;
+  z-index: 100;
+  left: 0;
+  top: 150;
+  background-image: url(talk.png);
+  background-size: 500px 640px;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+/* Fonts */
+
+#swordMessage p {
+  font-family: 'IM Fell Double Pica SC', serif;
+  font-size: 1.8em;
+  margin: 120px 70px;
+  text-align: justify;
 }
 
 #popup h1 {
