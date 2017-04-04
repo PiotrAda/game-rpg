@@ -4,11 +4,15 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #7a5230;
+}
+
 #game{
-  width: 1000px;
-  height: 1000px;
+  width: 900px;
+  height: 900px;
   margin: 0 auto;
-  border: 1px solid #000;
+  border: 3px solid #49311c;
   position: relative;
   background-image: url("grass.jpg");
   display: none;
@@ -17,13 +21,13 @@
 
 /* Objects */
 
-.rock, .tree, .skeleton, #warrior, #sword, #priest, .fire, .burnedtree, .tomb {
+.rock, .tree, .skeleton, #warrior, #sword, #priest, .fire, .burnedtree, .tomb, #thief, #treasure {
   position: absolute;
   width: 50px;
   height: 50px;
 }
 
-.skeleton, #sword, #priest, .fire {
+.skeleton, #sword, #priest, .fire, #treasure {
   z-index: 1;
 }
 
@@ -38,6 +42,14 @@
   width: 100px;
   height: 100px;
   z-index: 3;
+}
+
+#tower{
+  position: absolute;
+  width: 75px;
+  height: 150px;
+  z-index: 1;
+  filter: grayscale(60%);
 }
 
 /* Terrain */
@@ -62,17 +74,31 @@
 
 /* Pop-ups */
 
-#popup{
+#popup, #winGame, #loseGame{
   position: absolute;
   width: 800px;
   height: 640px;
   z-index: 100;
-  left: 100;
-  top: 100;
+  left: 50;
+  top: 50;
   background-image: url(scroll.png);
   background-size: 800px 640px;
   background-repeat: no-repeat;
   display: none;
+}
+
+button {
+  font-family: 'IM Fell Double Pica SC', serif;
+  position: absolute;
+  display: block;
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  top: 450;
+  left: 300;
+  font-size: 1.4em;
+  font-weight: bold;
+  background-color:#dbc3a3;
 }
 
 #priestMeet{
@@ -97,11 +123,68 @@
   width: 800px;
   height: 900px;
   z-index: 90;
-  left: 400;
+  left: 300;
   top: 30;
 }
 
 #swordMessage{
+  position: absolute;
+  width: 450px;
+  height: 700px;
+  z-index: 100;
+  left: 50;
+  top: 50;
+  background-image: url(talk.png);
+  background-size: 450px 640px;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+#swordMessage img{
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  z-index: 0;
+  left: 75;
+  top: 75;
+}
+
+#killDragon {
+  position: absolute;
+  width: 800px;
+  height: 640px;
+  z-index: 100;
+  left: 50;
+  top: 50;
+  background-image: url(scroll.png);
+  background-size: 800px 640px;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+#pickTreasure {
+  position: absolute;
+  width: 800px;
+  height: 640px;
+  z-index: 100;
+  left: 50;
+  top: 50;
+  background-image: url(scroll.png);
+  background-size: 800px 640px;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+#pickTreasure img{
+  position: absolute;
+  width: 477px;
+  height: 408px;
+  z-index: 0;
+  left: 170;
+  top: 400;
+}
+
+#thiefQuest, #thiefCompleted{
   position: absolute;
   width: 500px;
   height: 800px;
@@ -114,6 +197,59 @@
   display: none;
 }
 
+#thiefQuest img, #thiefCompleted img{
+  position: absolute;
+  width: 450px;
+  height: 800px;
+  z-index: 90;
+  left: 450;
+  top: -100;
+}
+
+#closedTower {
+  position: absolute;
+  width: 500px;
+  height: 800px;
+  z-index: 100;
+  left: 0;
+  top: 150;
+  background-image: url(talk.png);
+  background-size: 500px 540px;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+#meetPrincess {
+  position: absolute;
+  width: 500px;
+  height: 800px;
+  z-index: 100;
+  left: 0;
+  top: 150;
+  background-image: url(talk.png);
+  background-size: 500px 640px;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+#closedTower img {
+  position: absolute;
+  width: 475px;
+  height: 625px;
+  z-index: 90;
+  left: 450;
+  top: -50;
+}
+
+#meetPrincess img{
+  position: absolute;
+  width: 350px;
+  height: 800px;
+  z-index: 90;
+  left: 500;
+  top: -100;
+}
+
 /* Fonts */
 
 #swordMessage p {
@@ -123,7 +259,7 @@
   text-align: justify;
 }
 
-#popup h1 {
+#popup h1, #wingame h1, #losegame h1 {
   font-family: 'IM Fell Double Pica SC', serif;
   font-size: 2.5em;
   text-align: center;
@@ -132,7 +268,7 @@
   margin-top: 160px;
 }
 
-#popup p {
+#popup p, #wingame p, #losegame p {
   font-family: 'IM Fell Double Pica SC', serif;
   font-size: 1.8em;
   margin: 0px 80px;
@@ -141,7 +277,30 @@
 
 #priestTalk p {
   font-family: 'IM Fell Double Pica SC', serif;
-  font-size: 1.8em;
+  font-size: 1.5em;
   margin: 120px 70px;
+  text-align: justify;
+}
+
+#killDragon h1, #pickTreasure h1 {
+  font-family: 'IM Fell Double Pica SC', serif;
+  font-size: 2.5em;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin-top: 160px;
+}
+
+#killDragon p, #pickTreasure p {
+  font-family: 'IM Fell Double Pica SC', serif;
+  font-size: 1.8em;
+  margin: 0px 70px;
+  text-align: justify;
+}
+
+#thiefQuest p, #thiefCompleted p, #meetPrincess p, #closedTower p {
+  font-family: 'IM Fell Double Pica SC', serif;
+  font-size: 1.8em;
+  margin: 100px 80px 0px 80px;
   text-align: justify;
 }
