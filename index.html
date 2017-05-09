@@ -3,11 +3,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="styl.css" type="text/css" />
-	<link href="http://code.jquery.com/ui/1.12.2/themes/blitzer/jquery-ui.css" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=IM+Fell+Double+Pica+SC" rel="stylesheet">
 </head>
 
 <body>
+
+<div id="loading-screen"><img src="assets/gears.svg" /></div>
 
 	<div id="game">
 		<div id="loseGame">
@@ -28,11 +29,11 @@
 			<div id="priestTalk">
 				<p>So you seek a way to rescue the princess, eh? if you want to kill the dragon that is on the way to the tower, you'll need to get some better sword. I heard there is a nice piece of metal in the local graveyard. The skeletons are kinda scary... </br></br>I know! I'll set them on fire for you! This way, even if one catches you, you'll have at least a chance to survive.</p>
 			</div>
-				<img src="priestbig.png" />
+				<img src="assets/priestbig.png" />
 		</div>
 		<div id="swordMessage">
 			<p>You have found a sword. It is made of the finest steel and is engraved with rune word: <i>dragonslayer</i>. The blade shines with bright blue essence, you cen feel the power leaking out of the edge.</p>
-			<img src="sword-image.png" />
+			<img src="assets/sword-image.png" />
 		</div>
 		<div id="killDragon">
 			<h1>Congratulations!</h1>
@@ -40,175 +41,175 @@
 		</div>
 		<div id="thiefQuest">
 			<p>Pss, come here...</br></br>You want to get to that tower? Bring me the treasure that dragon posses and I'll give you the key that I stole from it!</br></br>Be careful not to run into the fire, you may get burned.</p>
-			<img src="thiefbig.png" />
+			<img src="assets/thiefbig.png" />
 		</div>
 		<div id="thiefCompleted">
 			<p>You have beaten the dragon?! Unbelieveable, and I thought you will be torn to pieces... I mean... Congratulations!</br></br>Now give me the treasure and the key is yours! You wont regret that, khe khe khe...	</p>
-			<img src="thiefbig.png" />
+			<img src="assets/thiefbig.png" />
 		</div>
 		<div id="pickTreasure">
 			<h1>Treasure!</h1>
 			<p>You have found the treasure! A chest full of gold and jewelry... Such wealth can always be useful for your quest.</p>
-			<img src="treasurebig.png" />
+			<img src="assets/treasurebig.png" />
 		</div>
 		<div id="closedTower">
 			<p>You tryto open the door, but those are closed. Even when you use strenght, nothing happens.</br></br>You need to find a key if you want to get inside.</p>
-			<img src="doors.png" />
+			<img src="assets/doors.png" />
 		</div>
 		<div id="meetPrincess">
 			<p>You open the door and start climbing the stairs.</br>On the highest level you meet a young princess. She is very surprised and happy to see a human face.</br></br>- Oh my savior! I have not seen another human in months... Thank you so much! >kiss<</p>
-			<img src="princessbig.png" />
+			<img src="assets/princessbig.png" />
 		</div>
-		<img id="warrior" src="warrior.png" />
-		<img id="dragon" src="dragon.png" />
-		<img id="sword" src="sword.png" />
-		<img id="priest" src="priest.png" />
-		<img id="fog" src="fog.png" />
-		<img id="stars" src="stars.gif" />
-		<img id="tower" src="tower.png" />
-		<img id="thief" src="thief.png" />
-		<img id="treasure" src="treasure.png" />
-		<img class="cursed" src="cursed.gif" />
-		<img class="cursed" src="cursed.gif" />
-		<img class="cursed" src="cursed.gif" />
-		<img class="cursed" src="cursed.gif" />
-		<img class="cursed" src="cursed.gif" />
-		<img class="cursed" src="cursed.gif" />
-		<img class="tomb" src="tomb.png" />
-		<img class="tomb" src="tomb.png" />
-		<img class="tomb" src="tomb.png" />
-		<img class="fire" src="fire.gif" />
-		<img class="fire" src="fire.gif" />
-		<img class="fire" src="fire.gif" />
-		<img class="fire" src="fire.gif" />
-		<img class="fire" src="fire.gif" />
-		<img class="fire" src="fire.gif" />
-		<img class="skeleton" src="skeleton.png" />
-		<img class="skeleton" src="skeleton.png" />
-		<img class="skeleton" src="skeleton.png" />
-		<img class="skeleton" src="skeleton.png" />
-		<img class="skeleton" src="skeleton.png" />
-		<img class="burnedtree" src="burnedtree.png" />
-		<img class="burnedtree" src="burnedtree.png" />
-		<img class="burnedtree" src="burnedtree.png" />
-		<img class="burnedtree" src="burnedtree.png" />
-		<img class="burnedtree" src="burnedtree.png" />
-		<img class="burnedtree" src="burnedtree.png" />
-		<img class="burnedtree" src="burnedtree.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="rock" src="rock.png" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
-		<img class="tree" src="tree.gif" />
+		<img id="warrior" src="assets/warrior.png" />
+		<img id="dragon" src="assets/dragon.png" />
+		<img id="sword" src="assets/sword.png" />
+		<img id="priest" src="assets/priest.png" />
+		<img id="fog" src="assets/fog.png" />
+		<img id="stars" src="assets/stars.gif" />
+		<img id="tower" src="assets/tower.png" />
+		<img id="thief" src="assets/thief.png" />
+		<img id="treasure" src="assets/treasure.png" />
+		<img class="cursed" src="assets/cursed.gif" />
+		<img class="cursed" src="assets/cursed.gif" />
+		<img class="cursed" src="assets/cursed.gif" />
+		<img class="cursed" src="assets/cursed.gif" />
+		<img class="cursed" src="assets/cursed.gif" />
+		<img class="cursed" src="assets/cursed.gif" />
+		<img class="tomb" src="assets/tomb.png" />
+		<img class="tomb" src="assets/tomb.png" />
+		<img class="tomb" src="assets/tomb.png" />
+		<img class="fire" src="assets/fire.gif" />
+		<img class="fire" src="assets/fire.gif" />
+		<img class="fire" src="assets/fire.gif" />
+		<img class="fire" src="assets/fire.gif" />
+		<img class="fire" src="assets/fire.gif" />
+		<img class="fire" src="assets/fire.gif" />
+		<img class="skeleton" src="assets/skeleton.png" />
+		<img class="skeleton" src="assets/skeleton.png" />
+		<img class="skeleton" src="assets/skeleton.png" />
+		<img class="skeleton" src="assets/skeleton.png" />
+		<img class="skeleton" src="assets/skeleton.png" />
+		<img class="burnedtree" src="assets/burnedtree.png" />
+		<img class="burnedtree" src="assets/burnedtree.png" />
+		<img class="burnedtree" src="assets/burnedtree.png" />
+		<img class="burnedtree" src="assets/burnedtree.png" />
+		<img class="burnedtree" src="assets/burnedtree.png" />
+		<img class="burnedtree" src="assets/burnedtree.png" />
+		<img class="burnedtree" src="assets/burnedtree.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="rock" src="assets/rock.png" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
+		<img class="tree" src="assets/tree.gif" />
 
 	</div>
 

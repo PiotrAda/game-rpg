@@ -1,3 +1,9 @@
+$(window).on('load',
+  function(){
+    setTimeout(function(){$('#loading-screen').fadeOut()}, 1000)
+  }
+);
+
 $(document).ready(function(){
 
 var game = $('#game');
@@ -150,7 +156,7 @@ $('#popup').fadeIn('slow').on('click', function(){
 	// event - meeting the priestess;
 	function meetPriest(){
 		if (xWarrior == priest.css('left') && yWarrior == priest.css('top') && priestMet == false){
-			skeleton.attr('src','burningskeleton.png');
+			skeleton.attr('src','assets/burningskeleton.png');
 			$('#priestMeet').fadeIn('slow');
 			$('#priestMeet').on('click', function(){
 				$(this).fadeOut();
@@ -164,7 +170,7 @@ $('#popup').fadeIn('slow').on('click', function(){
 		if (xWarrior == sword.css('left') && yWarrior == sword.css('top') && swordPicked == false){
 			sword.fadeOut();
 			swordPicked = true;
-			warrior.attr('src','warriorkiller.png');
+			warrior.attr('src','assets/warriorkiller.png');
 			$('#swordMessage').fadeIn('slow');
 			$('#swordMessage').on('click', function(){
 				$(this).fadeOut();
@@ -374,8 +380,6 @@ function meet(){
 	enterFire();
 	meetPrincess();
 	pickTreasure();
-	console.log(dragonDead);
-	console.log(princessRescued);
 };
 
 $(document).on('keydown', function(e){
